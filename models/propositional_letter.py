@@ -1,4 +1,4 @@
-from models.interpretation_function import InterpretFunc
+from models.interpret_function import InterpretFunc
 from models.formula import Formula
 from utils.helper import check_type
 
@@ -10,7 +10,7 @@ class PLetter(Formula):
         self._proposition = proposition
 
     def check(self, interp_func: InterpretFunc):
-        check_type(interp_func, InterpretFunc, "interpretation function")
+        check_type(interp_func, InterpretFunc, "i_func")
         return interp_func(self._proposition)
 
     def build(self, value=True) -> list:
