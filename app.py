@@ -1,6 +1,7 @@
 from models.conjunction import Conjunction
 from models.interpret_function import InterpretFunc
 from models.negation import Negation
+from models.partial_interpret_func import PartialInterpretfunc
 from models.propositional_letter import PLetter
 
 
@@ -53,3 +54,23 @@ print(f"I{str(conj5)} = {conj5.check(interp_func)}")
 print(f"I{str(conj6)} = {conj6.check(interp_func)}")
 print(f"I{str(conj7)} = {conj7.check(interp_func)}")
 print(f"I{str(conj8)} = {conj8.check(interp_func)}")
+
+# List of partial interpretation functions that make (p ∨ ¬q ∨ r) true
+partial = [
+    PartialInterpretfunc({"p": True}),
+    PartialInterpretfunc({"q": False}),
+    PartialInterpretfunc({"r": True})
+]
+
+# List of partial interpretation functions that make (p ∧ ¬q) true
+partial1 = [PartialInterpretfunc({"p": True, "q": False})]
+
+print(p_formula.build())
+print(q_formula.build())
+print(r_formula.build())
+
+print(neg_p_formula.build())
+print(neg_q_formula.build(False))
+print(neg_neg_p_formula.build())
+
+print(conj7.build())
