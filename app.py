@@ -5,7 +5,6 @@ from models.partial_interpret_func import PartialInterpretfunc
 from models.propositional_letter import PLetter
 
 
-# Interpretation function
 print("Interpretation Function")
 interp_func = InterpretFunc(true_ps={"p", "r"})
 print("I(p) = ", interp_func("p"))
@@ -13,7 +12,6 @@ print("I(r) = ", interp_func("r"))
 print("I(q) = ", interp_func("q"))
 print("I(s) = ", interp_func("s"))
 
-# Propositional letters
 print("Propositional Letters")
 p_formula = PLetter(proposition="p")
 q_formula = PLetter(proposition="q")
@@ -23,7 +21,6 @@ print(f"I({str(p_formula)}) = {p_formula.check(interp_func)}")
 print(f"I({str(q_formula)}) = {q_formula.check(interp_func)}")
 print(f"I({str(r_formula)}) = {r_formula.check(interp_func)}")
 
-# Negation of a formula
 print("Negation of a formula")
 neg_p_formula = Negation(phi=p_formula)
 neg_q_formula = Negation(phi=q_formula)
@@ -35,7 +32,6 @@ print(f"I({str(neg_neg_p_formula)}) = {neg_neg_p_formula.check(interp_func)}")
 print(f"I({str(neg_q_formula)}) = {neg_q_formula.check(interp_func)}")
 print(f"I({str(neg_r_formula)}) = {neg_r_formula.check(interp_func)}")
 
-# Conjunction of two formulas
 print("Conjunction of two formulas")
 conj1 = Conjunction(phi=p_formula, psi=q_formula)
 conj2 = Conjunction(phi=p_formula, psi=r_formula)
