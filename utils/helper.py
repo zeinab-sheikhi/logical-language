@@ -1,5 +1,3 @@
-# Checks that `o` is an instance of `t` (ex: integer, list). Produces a clear error message otherwise.
-# This function is not essential but can help a lot for debugging.
 def check_type(o, t, name=None):
     if (name is None):
         name = "[no name]"

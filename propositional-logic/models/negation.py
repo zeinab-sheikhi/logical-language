@@ -16,7 +16,7 @@ class Negation(Formula):
     
     def build(self, value=True):
         check_type(value, bool, "value")
-        return [PartialInterpretfunc({f"{self._phi}": not value})]
+        return [self._phi.build(value=not value)]
 
     def __str__(self) -> str:
         return f'(¬{self._phi})'
