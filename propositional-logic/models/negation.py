@@ -1,6 +1,5 @@
 from models.formula import Formula
 from models.interpret_function import InterpretFunc
-from models.partial_interpret_func import PartialInterpretfunc
 from utils.helper import check_type
 
 
@@ -16,7 +15,7 @@ class Negation(Formula):
     
     def build(self, value=True):
         check_type(value, bool, "value")
-        return [self._phi.build(value=not value)]
+        return self._phi.build(value=not value)
 
     def __str__(self) -> str:
         return f'(¬{self._phi})'

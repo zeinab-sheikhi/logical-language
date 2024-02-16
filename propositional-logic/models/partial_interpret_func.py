@@ -1,4 +1,3 @@
-from models.interpret_function import InterpretFunc
 from utils.helper import check_type
 
 
@@ -9,9 +8,9 @@ class PartialInterpretfunc:
         self.dic = dic
 
     def merge(self, other_func):
-        check_type(other_func, InterpretFunc, "other interpreation func")
+        check_type(other_func, PartialInterpretfunc, "other interpreation func")
         dic = dict(self.dic)
-        for p, v in other_func.items():
+        for p, v in other_func.dic.items():
             if (self.dic.get(p, v) != v):
                 return None
             dic[p] = v
