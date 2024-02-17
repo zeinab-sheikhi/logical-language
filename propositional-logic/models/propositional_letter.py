@@ -1,7 +1,7 @@
 from models.interpret_function import InterpretFunc
 from models.formula import Formula
 from models.partial_interpret_func import PartialInterpretfunc
-from utils.helper import check_type
+from ...utils.helper import check_type
 
 
 class PLetter(Formula):
