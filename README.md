@@ -5,6 +5,8 @@ Model checking functions for First Order Logic, automatically compute, for any c
 ∃x eat(Sabine,x) ∧ ∃x tall(x) ∧ young(x) <br>
 <br> 
 exemple = Conjunction(<br>
+<table>
+  <tr>
     <td>Existential(<br>
         <td>PredApp(<br>
             <td>pred=Predicate('eat', 2), args=[Constant(name="Sabine"), Variable(name='x')]<br>
@@ -21,4 +23,8 @@ exemple = Conjunction(<br>
         <td>),<br>
         <td>var=Variable(name='x')<br>
     <td>)<br>
+    </tr>
+</table>
 )<br>
+
+  
