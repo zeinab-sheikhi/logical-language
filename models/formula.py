@@ -11,3 +11,4 @@ class Formula:
         check_type(m, Model, "m")
         f = VarAssignment()
         return self.check(m, f)
+    

@@ -29,65 +29,42 @@ p_dic = {
 domain = {1, 2, 3, 4, 5, 6}
 i_func = InterpretationFunc(c_dic, p_dic)
 model = Model(domain, i_func)
-
-print(f"Interpret Func\n: {model.i_func}")
-
-# pred = PredApp(pred=Predicate("love", 2), args=[Variable(name="x"), Constant(name="Sabine")])
-
-# f = VarAssignment({Variable(name="x"): 1, Variable(name="y"): 3})
-
-# print(f'{pred} is {pred.check(m=model, f=f)} with f = {f}')
-
-# f2 = f.assign(Variable(name='x'), 2)
-# print(f'{pred} is {pred.check(m=model, f=f2)} with f = {f2}')
-
-# f3 = f.assign(Variable(name='x'), 4)
-# print(f'{pred} is {pred.check(m=model, f=f3)} with f = {f3}')
-
-# pred = PredApp(pred=Predicate("love", 2), args=[Constant(name="John"), Variable(name="x")])
-# f4 = f.assign(Variable(name='x'), 6)
-# print(f'{pred} is {pred.check(m=model, f=f4)} with f = {f4}')
-
-
-# f = VarAssignment({Variable(name="x"): 1, Variable(name="y"): 3})
-# neg = Negation(PredApp(pred=Predicate("love", 2), args=[Variable(name="x"), Constant(name="Sabine")]))
-
-# print(f"Domain: {model.domain}")
-# print(f"Interpret Func: {model.i_func}")
-
-# print(f'{neg} is {neg.check(m=model, f=f)} with f = {f}')
-
-# f2 = f.assign(Variable(name='x'), 2)
-# print(f'{neg} is {neg.check(m=model, f=f2)} with f = {f2}')
-
-# f3 = f.assign(Variable(name='x'), 4)
-# print(f'{neg} is {neg.check(m=model, f=f3)} with f = {f3}')
-
-
-domain = {1, 2, 3, 4, 5, 6}
-model = Model(domain, i_func)
 f = VarAssignment({Variable(name="x"): 1, Variable(name="y"): 3})
 
-# ex = Existential(
-#     Existential(PredApp(pred=Predicate("love", 2), args=[Variable(name="x"), Variable(name="y")]), Variable(name='y')),
-#     Variable(name='x'))
+pred = PredApp(pred=Predicate("love", 2), args=[Variable(name="x"), Constant(name="Sabine")])
 
-# print(f'{ex} is {ex.check(m=model, f=f)}')
+print(f'{pred} is {pred.check(m=model, f=f)} with f = {f}')
 
-# ex1 = Existential(Negation(PredApp(pred=Predicate('love', 2), args=[Variable(name='x'), Constant(name="Sabine")])), Variable(name='x'))
-# print(f"{ex1} is {ex1.check(m=model, f=f)}")
+f2 = f.assign(Variable(name='x'), 2)
+print(f'{pred} is {pred.check(m=model, f=f2)} with f = {f2}')
 
-# ex1 = Existential(PredApp(pred=Predicate('love', 2), args=[Variable(name='x'), Constant(name="Sabine")]), Variable(name='x'))
-# print(f"{ex1} is {ex1.check(m=model, f=f)}")
+f3 = f.assign(Variable(name='x'), 4)
+print(f'{pred} is {pred.check(m=model, f=f3)} with f = {f3}')
 
-# ex1 = Existential(PredApp(pred=Predicate('love', 2), args=[Constant(name="John"), Variable(name='x')]), Variable(name='x'))
-# print(f"{ex1} is {ex1.check(m=model, f=f)}")
+pred = PredApp(pred=Predicate("love", 2), args=[Constant(name="John"), Variable(name="x")])
+f4 = f.assign(Variable(name='x'), 6)
+print(f'{pred} is {pred.check(m=model, f=f4)} with f = {f4}')
 
+neg = Negation(PredApp(pred=Predicate("love", 2), args=[Variable(name="x"), Constant(name="Sabine")]))
+print(f'{neg} is {neg.check(m=model, f=f)} with f = {f}')
 
-conj = Conjunction(PredApp(pred=Predicate("love", 2), args=[Constant(name="Sabine"), Constant(name="Marie")]), PredApp(pred=Predicate("love", 2), args=[Constant(name="Marie"), Constant(name="John")]))
+f2 = f.assign(Variable(name='x'), 2)
+print(f'{neg} is {neg.check(m=model, f=f2)} with f = {f2}')
 
-# print(conj)
-# print(conj.check(m=model, f=f))
+f3 = f.assign(Variable(name='x'), 4)
+print(f'{neg} is {neg.check(m=model, f=f3)} with f = {f3}')
+
+ex = Existential(
+    Existential(PredApp(pred=Predicate("love", 2), args=[Variable(name="x"), Variable(name="y")]), Variable(name='y')),
+    Variable(name='x'))
+
+print(f'{ex} is {ex.check(m=model, f=f)}')
+
+ex1 = Existential(Negation(PredApp(pred=Predicate('love', 2), args=[Variable(name='x'), Constant(name="Sabine")])), Variable(name='x'))
+print(f"{ex1} is {ex1.check(m=model, f=f)}")
+
+ex1 = Existential(PredApp(pred=Predicate('love', 2), args=[Constant(name="John"), Variable(name='x')]), Variable(name='x'))
+print(f"{ex1} is {ex1.check(m=model, f=f)}")
 
 exemple = Existential(
     Existential(
@@ -99,7 +76,7 @@ exemple = Existential(
         var=Variable(name='y')),
     var=Variable(name='x')) 
 
-# print(f"{exemple} is {exemple.check(model, f=f)}")
+print(f"{exemple} is {exemple.check(model, f=f)}")
 
 exemple = Existential(
     Existential(
@@ -111,11 +88,12 @@ exemple = Existential(
         var=Variable(name='y')),
     var=Variable(name='x'))
 
-# print(f"{exemple} is {exemple.check(model, f=f)}")
+print(f"{exemple} is {exemple.check(model, f=f)}")
 
 
 print(f"Domain: {model.domain}")
 print(f"Interpret Func: {model.i_func}")
+
 exemple_closed = Existential(
     Existential(
         Existential(
