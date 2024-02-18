@@ -8,19 +8,19 @@ Model checking functions for First Order Logic, automatically compute, for any c
     Existential(
         PredApp(
             pred=Predicate('eat', 2), args=[Constant(name="Sabine"), Variable(name='x')]
-        ), var=Variable(name='x')
-    ,
-    Existential(
-        Conjunction(
-            PredApp(
-                pred=Predicate('tall', 1), args=[Variable(name='x')]
+        ), 
+        var=Variable(name='x'),
+        Existential(
+            Conjunction(
+                PredApp(
+                    pred=Predicate('tall', 1), args=[Variable(name='x')]
+                ),
+                PredApp(
+                    pred=Predicate('young', 1), args=[Variable(name='x')]
+                )
             ),
-            PredApp(
-                pred=Predicate('young', 1), args=[Variable(name='x')]
-            )
-        ),
         var=Variable(name='x')
-    )
+        )
 )
 ```
 
