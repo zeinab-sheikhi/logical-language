@@ -11,4 +11,4 @@ partial = ```[
     PartialInterpretfunc({"p": True}),
     PartialInterpretfunc({"q": False}),
     PartialInterpretfunc({"r": True})
-]
+]```
