@@ -1,4 +1,4 @@
-# Propositional Logic and First Order Logic
+# Propositional Logic
 This repository contains Python implementations of the Propositional Logic and First Order Logic.<br>
 In Propositional Logic, a model is simply an interpretation function.<br>
 An interpretation function is a function that sends each propositional letter to a boolean value.<br>
