@@ -3,8 +3,9 @@ Model checking functions for First Order Logic, automatically compute, for any c
 
 ## Example of a closed formula
 ∃x eat(Sabine,x) ∧ ∃x tall(x) ∧ young(x) <br>
-<br> 
-```exemple = Conjunction(
+
+```python
+exemple = Conjunction(
     Existential(
         PredApp(
             pred=Predicate('eat', 2), args=[Constant(name="Sabine"), Variable(name='x')]
@@ -22,6 +23,6 @@ Model checking functions for First Order Logic, automatically compute, for any c
         var=Variable(name='x')
         )
 )
-```
+
 
   
