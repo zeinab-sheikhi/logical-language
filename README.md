@@ -5,21 +5,20 @@ Model checking functions for First Order Logic, automatically compute, for any c
 ∃x eat(Sabine,x) ∧ ∃x tall(x) ∧ young(x) <br>
 <br> 
 exemple = Conjunction(<br>
-    Existential(<br>
-        PredApp(<br>
-            pred=Predicate('eat', 2), args=[Constant(name="Sabine"), Variable(name='x')]<br>
-        ), var=Variable(name='x')<br>
-    ),<br>
-    Existential(<br>
-        Conjunction(<br>
-            PredApp(<br>
-                pred=Predicate('tall', 1), args=[Variable(name='x')]<br>
-            ),<br>
-            PredApp(<br>
-                pred=Predicate('young', 1), args=[Variable(name='x')]<br>
-            )<br>
-        ),<br>
-        var=Variable(name='x')<br>
-    )<br>
+    <td>Existential(<br>
+        <td>PredApp(<br>
+            <td>pred=Predicate('eat', 2), args=[Constant(name="Sabine"), Variable(name='x')]<br>
+        <td>), var=Variable(name='x')<br>
+    <td>),<br>
+    <td>Existential(<br>
+        <td>Conjunction(<br>
+            <td>PredApp(<br>
+                <td>pred=Predicate('tall', 1), args=[Variable(name='x')]<br>
+            <td>),<br>
+            <td>PredApp(<br>
+                <td>pred=Predicate('young', 1), args=[Variable(name='x')]<br>
+            <td>)<br>
+        <td>),<br>
+        <td>var=Variable(name='x')<br>
+    <td>)<br>
 )<br>
-
