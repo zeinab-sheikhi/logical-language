@@ -8,8 +8,9 @@ We use a partial interpretation function to represent the conditions that are mi
 
 List of partial interpretation functions that make (p ∨ ¬q ∨ r) true<br>
 
-```partial = [
+```python
+partial = [
     PartialInterpretfunc({"p": True}),
     PartialInterpretfunc({"q": False}),
     PartialInterpretfunc({"r": True})
-]```
+]
