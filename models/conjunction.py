@@ -1,6 +1,6 @@
 from models.interpret_function import InterpretFunc
 from models.formula import Formula
-from ...utils.helper import check_type, flatten_list
+from utils.helper import check_type, flatten_list
 
 
 class Conjunction(Formula):
@@ -22,20 +22,21 @@ class Conjunction(Formula):
         partial_list = []
         
         if value:
-            if isinstance(phi_partial, list) or isinstance(psi_partial, list):
-                partial_list = [item2.merge(item1) for item1, item2 in zip(psi_partial, phi_partial) if item2.merge(item1) is not None]
-            else:
-                res = phi_partial.merge(psi_partial)
-                if res is not None:
-                    partial_list.append(res)
+            # if isinstance(phi_partial, list) or isinstance(psi_partial, list):
+            partial_list = [item2.merge(item1) for item1, item2 in zip(psi_partial, phi_partial) if item2.merge(item1) is not None]
+
+            # else:
+            #     res = phi_partial.merge(psi_partial)
+            #     if res is not None:
+            #         partial_list.append(res)
         
         else:
-            if isinstance(phi_partial, list) or isinstance(psi_partial, list):
-                partial_list.append(phi_partial)
-                partial_list.append(psi_partial)
-                partial_list = flatten_list(partial_list)
-            else: 
-                partial_list = [phi_partial, psi_partial]
+            # if isinstance(phi_partial, list) or isinstance(psi_partial, list):
+            partial_list.append(phi_partial)
+            partial_list.append(psi_partial)
+            partial_list = flatten_list(partial_list)
+            # else: 
+            #     partial_list = [phi_partial, psi_partial]
         
         return partial_list
     

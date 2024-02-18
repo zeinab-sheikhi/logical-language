@@ -1,4 +1,4 @@
-from ...utils.helper import check_type
+from utils.helper import check_type
 from typing import Set
 
 

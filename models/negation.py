@@ -1,6 +1,6 @@
 from models.formula import Formula
 from models.interpret_function import InterpretFunc
-from ...utils.helper import check_type
+from utils.helper import check_type
 
 
 class Negation(Formula):
