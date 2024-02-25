@@ -97,3 +97,8 @@ p_bicond_q = Conjunction(p_impl_q, q_impl_p)
 print(p_bicond_q)
 print(p_bicond_q.build(True))
 print(p_bicond_q.build(False))
+
+print("bug")
+f = Conjunction(p_or_q, r_formula)
+print(f.build(True))
+print(f.build(False))
