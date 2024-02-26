@@ -19,5 +19,10 @@ class Existential(Formula):
         all_check = [self._pred.check(m, f=f.assign(self._var, d)) for d in m.domain]
         return any(all_check)
 
+    def free_variables(self):
+        fv = self._pred.free_variables()
+        fv.discard(self._var)
+        return fv
+    
     def __str__(self) -> str:
         return f'(∃{(self._var)} {self._pred})'

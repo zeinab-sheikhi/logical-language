@@ -1,6 +1,7 @@
 from models.formula import Formula
 from models.fol_model import Model
 from models.predicate import Predicate
+from models.variable import Variable
 from models.variable_assign_func import VarAssignment
 from typing import List
 from utils.helper import check_type
@@ -32,6 +33,10 @@ class PredApp(Formula):
             return True
         else:
             return False
+    
+    def free_variables(self):
+        fv = [item for item in self._args if isinstance(item, Variable)]
+        return set(fv)
     
     def __str__(self):
         return f"{self._pred}({','.join([str(x) for x in self._args])})"

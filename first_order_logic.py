@@ -32,8 +32,8 @@ model = Model(domain, i_func)
 f = VarAssignment({Variable(name="x"): 1, Variable(name="y"): 3})
 
 pred = PredApp(pred=Predicate("love", 2), args=[Variable(name="x"), Constant(name="Sabine")])
-
 print(f'{pred} is {pred.check(m=model, f=f)} with f = {f}')
+print(f'free variables are: {pred.free_variables()}')
 
 f2 = f.assign(Variable(name='x'), 2)
 print(f'{pred} is {pred.check(m=model, f=f2)} with f = {f2}')
@@ -47,6 +47,7 @@ print(f'{pred} is {pred.check(m=model, f=f4)} with f = {f4}')
 
 neg = Negation(PredApp(pred=Predicate("love", 2), args=[Variable(name="x"), Constant(name="Sabine")]))
 print(f'{neg} is {neg.check(m=model, f=f)} with f = {f}')
+print(f' free variables are: {neg.free_variables()}')
 
 f2 = f.assign(Variable(name='x'), 2)
 print(f'{neg} is {neg.check(m=model, f=f2)} with f = {f2}')
@@ -59,12 +60,15 @@ ex = Existential(
     Variable(name='x'))
 
 print(f'{ex} is {ex.check(m=model, f=f)}')
+print(f'free variables are: {ex.free_variables()}')
 
 ex1 = Existential(Negation(PredApp(pred=Predicate('love', 2), args=[Variable(name='x'), Constant(name="Sabine")])), Variable(name='x'))
 print(f"{ex1} is {ex1.check(m=model, f=f)}")
+print(f'free variables are: {ex1.free_variables()}')
 
 ex1 = Existential(PredApp(pred=Predicate('love', 2), args=[Constant(name="John"), Variable(name='x')]), Variable(name='x'))
 print(f"{ex1} is {ex1.check(m=model, f=f)}")
+print(f'free variables are: {ex1.free_variables()}')
 
 exemple = Existential(
     Existential(
@@ -77,6 +81,7 @@ exemple = Existential(
     var=Variable(name='x')) 
 
 print(f"{exemple} is {exemple.check(model, f=f)}")
+print(f'free variables are: {exemple.free_variables()}')
 
 exemple = Existential(
     Existential(

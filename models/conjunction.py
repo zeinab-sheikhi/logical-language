@@ -17,5 +17,9 @@ class Conjunction(Formula):
         check_type(f, VarAssignment, "f")
         return self._phi.check(m, f) and self._psi.check(m, f)
     
+    def free_variables(self):
+        fv = self._psi.free_variables().union(self._phi.free_variables())
+        return fv
+    
     def __str__(self):
         return f"({self._phi} ∧ {self._psi})"
